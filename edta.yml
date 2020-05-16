@@ -1,0 +1,7 @@
+name: edta
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - edta
+
