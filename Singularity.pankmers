@@ -1,4 +1,4 @@
-Bootstrap:docker://
+Bootstrap:docker
 From:continuumio/miniconda3
 
 %files
@@ -9,10 +9,12 @@ From:continuumio/miniconda3
     PATH=/opt/conda/envs/edta/bin:$PATH
 
 %post
+    apt-get update -y
+    apt-get install -y build-essential
+    gcc --version
     echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc
     echo "source activate pankmers" > ~/.bashrc
     /opt/conda/bin/conda env create -f pankmers.yml -n pankmers
 
 %runscript
     exec "$@"
-
