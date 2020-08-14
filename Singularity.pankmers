@@ -1,0 +1,19 @@
+Bootstrap: docker
+
+From: continuumio/miniconda3
+
+%files
+    pankmers.yml
+
+
+%environment
+    PATH=/opt/conda/envs/edta/bin:$PATH
+
+%post
+    echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc
+    echo "source activate edta" > ~/.bashrc
+    /opt/conda/bin/conda env create -f edta.yml -n edta
+
+%runscript
+    exec "$@"
+

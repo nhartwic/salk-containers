@@ -1,0 +1,10 @@
+name: install_test
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - python == 3.7.6
+  - biopython
+  - Cython
+  - pip:
+    - "--editable=git+https://pksemar:tc_frqzjvuf_3ZKrdXuK@gitlab.com/semarpetrus/pankmer.git@master#egg=pankmer-master"
