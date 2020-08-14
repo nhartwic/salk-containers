@@ -6,7 +6,7 @@ From:continuumio/miniconda3
 
 
 %environment
-    PATH=/opt/conda/envs/edta/bin:$PATH
+    PATH=/opt/conda/envs/pankemrs/bin:$PATH
 
 %post
     apt-get update -y
