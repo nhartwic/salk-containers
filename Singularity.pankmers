@@ -1,6 +1,5 @@
-Bootstrap: docker
-
-From: continuumio/miniconda3
+Bootstrap:docker
+From:continuumio/miniconda3
 
 %files
     pankmers.yml
