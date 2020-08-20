@@ -3,14 +3,11 @@ From:continuumio/miniconda3
 
 %files
     edta.yml
+    runscript
 
 %post
     . /opt/conda/etc/profile.d/conda.sh
     conda activate
-    conda env create -f edta.yml -n edta
-    conda activate edta
+    conda env create -f edta.yml -n myenv
+    cp runscript .singularity.d/runscript
 
-%runscript
-    . /opt/conda/etc/profile.d/conda.sh
-    conda activate edta
-    exec "$@"
