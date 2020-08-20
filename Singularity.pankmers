@@ -1,20 +1,23 @@
 Bootstrap:docker
 From:continuumio/miniconda3
 
-%files
-    pankmers.yml
-
-
-%environment
-    PATH=/opt/conda/envs/pankmers/bin:$PATH
 
 %post
+    pwd
     apt-get update -y
     apt-get install -y build-essential
     gcc --version
-    echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc
-    echo "source activate pankmers" > ~/.bashrc
-    /opt/conda/bin/conda env create -f pankmers.yml -n pankmers
+    # echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc
+    # echo "source activate pankmers" > ~/.bashrc
+    # /opt/conda/bin/conda env create -f pankmers.yml -n pankmers
+    /opt/conda/bin/conda install -c bioconda -c conda-forge python==3.7.6 biopython Cython setuptools
+    . /opt/conda/etc/profile.d/conda.sh
+    conda activate
+    # sudo apt install git-all
+    git clone https://pksemar:tc_frqzjvuf_3ZKrdXuK@gitlab.com/semarpetrus/pankmer.git
+    cd pankmer/
+    python setup.py build_ext --inplace
+    python setup.py install
 
 %runscript
     exec "$@"
