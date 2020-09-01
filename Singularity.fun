@@ -15,3 +15,6 @@ From:continuumio/miniconda3
     # dangerous wizardry below required to change from sh to bash for env sourcing
     rm /bin/sh
     ln -s /bin/bash /bin/sh
+
+%runscript
+    exec "$@"
