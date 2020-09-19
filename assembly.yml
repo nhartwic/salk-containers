@@ -1,0 +1,17 @@
+name: assembly_tools
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - minimap2 == 2.17
+  - samtools == 1.9
+  - flye = 2.8
+  - wtdbg == 2.5
+  - miniasm == 0.3_r179
+  - racon == 1.4.13
+  - pilon == 1.23
+  - medaka == 1.0.1
+  - busco == 4.0.6
+  - spades == 3.14.0
+  - biopython == 1.77
