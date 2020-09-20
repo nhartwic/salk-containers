@@ -2,13 +2,13 @@ Bootstrap:docker
 From:continuumio/miniconda3
 
 %files
-    assembly.yml
+    assembly.dump.yml
     conda.envscript
 
 %post
     . /opt/conda/etc/profile.d/conda.sh
     conda activate
-    conda env create -f assembly.yml -n myenv
+    conda env create -f assembly.dump.yml -n myenv
     # copy a script to activate myenv whenever the container starts up
     cp conda.envscript .singularity.d/env/
     echo 'source /.singularity.d/env/conda.envscript' >> $SINGULARITY_ENVIRONMENT
