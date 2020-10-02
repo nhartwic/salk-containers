@@ -3,7 +3,7 @@ FROM continuumio/miniconda3
 WORKDIR /app
 
 # Create the environment:
-COPY assembly.locked.yml environment.yml
+COPY assembly.dump.yml environment.yml
 RUN conda env create -f environment.yml
 
 # Make RUN commands use the new environment:
