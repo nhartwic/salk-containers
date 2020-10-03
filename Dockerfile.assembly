@@ -4,7 +4,7 @@ WORKDIR /app
 
 # Create the environment:
 COPY assembly.dump.yml environment.yml
-RUN conda env create -f environment.yml
+RUN conda env create -f environment.yml -n myenv
 
 # Make RUN commands use the new environment:
 SHELL ["conda", "run", "-n", "myenv", "/bin/bash", "-c"]
