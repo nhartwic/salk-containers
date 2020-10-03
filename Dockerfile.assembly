@@ -6,6 +6,9 @@ WORKDIR /app
 COPY assembly.dump.yml environment.yml
 RUN conda env create -f environment.yml -n myenv
 
+RUN echo "source activate myenv" > ~/.bashrc
+
+
 # Make RUN commands use the new environment:
 SHELL ["conda", "run", "-n", "myenv", "/bin/bash", "-c"]
 
