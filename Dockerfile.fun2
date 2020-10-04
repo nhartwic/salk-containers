@@ -1,0 +1,12 @@
+FROM nextgenusfs/funannotate
+
+USER linuxbrew
+
+WORKDIR /home/linuxbrew
+
+RUN funannotate setup -d /home/linuxbrew/DB && \
+    mkdir /home/linuxbrew/data
+
+WORKDIR /home/linuxbrew/data
+
+ENTRYPOINT /bin/bash
