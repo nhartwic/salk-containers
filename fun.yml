@@ -4,6 +4,5 @@ channels:
   - bioconda
   - defaults
 dependencies:
-  - funannotate == 1.8.1
-  - samtools == 1.11
-  - sra-tools == 2.10.3
+  - funannotate == 1.8.1*
+  - sra-tools == 2.10.3*
