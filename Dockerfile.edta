@@ -1,7 +1,5 @@
 FROM continuumio/miniconda3
 
-WORKDIR /app
-
 # specify  environment yml:
 COPY edta.yml environment.yml
 
