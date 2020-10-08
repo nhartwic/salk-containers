@@ -1,7 +1,9 @@
 name: edta
 channels:
-  - bioconda
   - conda-forge
+  - bioconda
   - defaults
 dependencies:
-  - edta == 1.9.0
+  - edta == 1.8.3
+  - repeatmasker == 4.0.*
+
