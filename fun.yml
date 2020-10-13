@@ -6,3 +6,4 @@ channels:
 dependencies:
   - funannotate == 1.8.1*
   - sra-tools == 2.10.3*
+  - diamond == 2.0.2*
