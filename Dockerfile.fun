@@ -1,7 +1,7 @@
 FROM continuumio/miniconda3
 
 # specify  environment yml:
-COPY fun.yml environment.yml
+COPY fun.hard.yml environment.yml
 
 # build provided env
 RUN conda env create -f environment.yml -n myenv
