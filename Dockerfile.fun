@@ -1,7 +1,7 @@
 FROM continuumio/miniconda3
 
 # specify  environment yml:
-COPY fun.hard.yml environment.yml
+COPY fun.yml environment.yml
 
 # build provided env
 RUN conda env create -f environment.yml -n myenv
@@ -9,6 +9,9 @@ RUN echo "source activate myenv" > ~/.bashrc
 
 # force bash to be used instead of shell
 run rm /bin/sh && ln -s /bin/bash /bin/sh
+
+# fix diamond version
+run conda activate myenv && conda install -c bioconda --no-deps diamond
 
 # build singularity dir structure to hopefully hack singularity functionality when relevant
 run mkdir -p /.singularity.d/env
