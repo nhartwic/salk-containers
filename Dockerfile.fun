@@ -13,7 +13,7 @@ run rm /bin/sh && ln -s /bin/bash /bin/sh
 # fix diamond version
 run . /opt/conda/etc/profile.d/conda.sh && \
     conda activate myenv && \
-    conda install -c bioconda --no-deps --force diamond
+    conda install -c bioconda --no-deps --force diamond=2.0.2
 
 # build singularity dir structure to hopefully hack singularity functionality when relevant
 run mkdir -p /.singularity.d/env
