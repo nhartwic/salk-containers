@@ -11,7 +11,9 @@ RUN echo "source activate myenv" > ~/.bashrc
 run rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # fix diamond version
-run conda activate myenv && conda install -c bioconda --no-deps diamond
+run . /opt/conda/etc/profile.d/conda.sh && \
+    conda activate myenv && \
+    conda install -c bioconda --no-deps --force diamond
 
 # build singularity dir structure to hopefully hack singularity functionality when relevant
 run mkdir -p /.singularity.d/env
