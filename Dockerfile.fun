@@ -11,7 +11,7 @@ RUN echo "source activate myenv" > ~/.bashrc
 run rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # fix diamond version by manually installing
-run wget http://github.com/bbuchfink/diamond/releases/download/v2.0.3/diamond-linux64.tar.gz && \
+run wget http://github.com/bbuchfink/diamond/releases/download/v0.9.21/diamond-linux64.tar.gz && \
     tar -zxf diamond-linux64.tar.gz && \
     mv diamond /opt/conda/envs/myenv/bin/diamond
 
