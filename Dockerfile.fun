@@ -11,9 +11,10 @@ RUN echo "source activate myenv" > ~/.bashrc
 run rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # fix diamond version by manually installing
-run wget http://github.com/bbuchfink/diamond/releases/download/v0.9.21/diamond-linux64.tar.gz && \
-    tar -zxf diamond-linux64.tar.gz && \
-    mv diamond /opt/conda/envs/myenv/bin/diamond
+run . /opt/conda/etc/profile.d/conda.sh && \
+    conda activate myenv && \
+    which pip && \
+    python -m pip install --no-deps --force git+https://github.com/nextgenusfs/funannotate.git
 
 # build singularity dir structure to hopefully hack singularity functionality when relevant
 run mkdir -p /.singularity.d/env
