@@ -7,17 +7,20 @@ COPY fun.yml environment.yml
 run rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # build needed env
-RUN . /opt/conda/etc/profile.d/conda.sh && \
+RUN \
+    . /opt/conda/etc/profile.d/conda.sh && \
     conda env create -f environment.yml -n myenv && \
-    conda activate myenv && \
-    which pip && \
-    python -m pip install --no-deps --force git+https://github.com/nextgenusfs/funannotate.git && \
+    apt install build-essential && \
     git clone https://github.com/KorfLab/SNAP.git && \
     cd SNAP/ && \
     make && \
     cp forge /opt/conda/envs/myenv/bin/ && \
     cd ../ && \
-    rm -rf SNAP/ 
+    rm -rf SNAP/ \
+    conda activate myenv && \
+    which pip && \
+    python -m pip install --no-deps --force git+https://github.com/nextgenusfs/funannotate.git
+
 
 # added conda activation to bashrc which maybe sometimes does something
 RUN echo "source activate myenv" > ~/.bashrc
