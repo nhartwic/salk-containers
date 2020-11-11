@@ -17,7 +17,7 @@ RUN \
     make && \
     cp forge /opt/conda/envs/myenv/bin/ && \
     cd ../ && \
-    rm -rf SNAP/ \
+    rm -rf SNAP/ && \
     conda activate myenv && \
     which pip && \
     python -m pip install --no-deps --force git+https://github.com/nextgenusfs/funannotate.git
