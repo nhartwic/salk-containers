@@ -10,7 +10,8 @@ run rm /bin/sh && ln -s /bin/bash /bin/sh
 RUN \
     . /opt/conda/etc/profile.d/conda.sh && \
     conda env create -f environment.yml -n myenv && \
-    apt install -y build-essential && \
+    apt-get update && \
+    apt-get install -y build-essential && \
     git clone https://github.com/KorfLab/SNAP.git && \
     cd SNAP/ && \
     make && \
