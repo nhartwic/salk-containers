@@ -11,7 +11,13 @@ RUN . /opt/conda/etc/profile.d/conda.sh && \
     conda env create -f environment.yml -n myenv && \
     conda activate myenv && \
     which pip && \
-    python -m pip install --no-deps --force git+https://github.com/nextgenusfs/funannotate.git
+    python -m pip install --no-deps --force git+https://github.com/nextgenusfs/funannotate.git && \
+    git clone https://github.com/KorfLab/SNAP.git && \
+    cd SNAP/ && \
+    make && \
+    cp forge /opt/conda/envs/myenv/bin/ && \
+    cd ../ && \
+    rm -rf SNAP/ 
 
 # added conda activation to bashrc which maybe sometimes does something
 RUN echo "source activate myenv" > ~/.bashrc
