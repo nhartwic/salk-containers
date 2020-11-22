@@ -9,9 +9,8 @@ FROM ubuntu
 # File Author / Maintainer
 MAINTAINER Neva C. Durand 
 
-# hopefully configure localles to work
-ENV LANG C.UTF-8
-ENV LC_ALL C.UTF-8
+# hopefully configure tzdata to work
+ENV DEBIAN_FRONTEND=noninteractive
 
 # Update the repository sources list
 # Install base packages: java, git, wget
