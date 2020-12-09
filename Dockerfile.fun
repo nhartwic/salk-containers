@@ -20,7 +20,13 @@ RUN \
     rm -rf SNAP/ && \
     conda activate myenv && \
     which pip && \
-    python -m pip install --no-deps --force git+https://github.com/nextgenusfs/funannotate.git
+    python -m pip install --no-deps --force git+https://github.com/nextgenusfs/funannotate.git && \
+    git clone https://github.com/kblin/glimmerhmm.git && \
+    cd glimmerhmm/sources/ && \
+    make && \
+    cp glimmerhmm /opt/conda/envs/myenv/bin/ && \
+    cd ../../ && \
+    rm -rf glimmerhmm
 
 
 # added conda activation to bashrc which maybe sometimes does something
