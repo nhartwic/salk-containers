@@ -1,0 +1,19 @@
+FROM continuumio/miniconda3
+
+# force bash to be used instead of shell
+run rm /bin/sh && ln -s /bin/bash /bin/sh
+
+# build provided env
+RUN conda create -n myenv -c conda-forge -c bioconda purge_haplotigs
+
+# update bashrc for docker usage
+RUN echo "source activate myenv" > ~/.bashrc
+
+# build singularity dir structure to hopefully hack singularity functionality when relevant
+run mkdir -p /.singularity.d/env && \
+    echo '. /opt/conda/etc/profile.d/conda.sh' >> /.singularity.d/env/91-environment.sh && \
+    echo 'conda activate myenv' >> /.singularity.d/env/91-environment.sh
+
+# Make RUN commands use the new environment (for docker execution):
+SHELL ["conda", "run", "-n", "myenv", "/bin/bash", "-c"]
+
