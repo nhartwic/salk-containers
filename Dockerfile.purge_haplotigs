@@ -4,7 +4,7 @@ FROM continuumio/miniconda3
 run rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # build provided env
-RUN conda create -n myenv -c conda-forge -c bioconda purge_haplotigs
+RUN conda create -n myenv -c bioconda purge_haplotigs
 
 # update bashrc for docker usage
 RUN echo "source activate myenv" > ~/.bashrc
