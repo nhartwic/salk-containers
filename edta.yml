@@ -4,6 +4,5 @@ channels:
   - bioconda
   - defaults
 dependencies:
-  - edta == 1.8.3
-  - repeatmasker == 4.0.*
+  - edta == 1.9.6
 
