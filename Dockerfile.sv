@@ -4,8 +4,8 @@ FROM continuumio/miniconda3
 COPY sv.yml environment.yml
 
 # install gcc
-RUN apt update
-RUN apt install build-essential
+RUN apt update -y
+RUN apt install build-essential -y
 
 # build provided env
 RUN conda env create -f environment.yml -n myenv
