@@ -1,0 +1,17 @@
+channels:
+    - conda-forge
+    - bioconda
+dependencies:
+  - samtools
+  - lra
+  - seqtk
+  - cutesv
+  - bedtools
+  - bcftools
+  - vcftools
+  - vcflib
+  - mosdepth
+  - nanoplot
+  - python-levenshtein
+  - pytabix
+  - pip
