@@ -1,0 +1,22 @@
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python==3.7.6
+  - Cython
+  - setuptools
+  - pandas
+  - numpy
+  - plotly
+  - biopython
+  - pilon
+  - bwa
+  - samtools
+  - spades
+  - blast
+  - minimap2
+  - flye
+  - pip
+  - pip:
+    - git+https://gitlab.com/salk-tm/snake_phase2.git

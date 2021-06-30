@@ -1,0 +1,28 @@
+From continuumio/miniconda3
+
+
+COPY felix_assembly.yml environment.yml
+
+# force bash to be used instead of shell
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
+# build singularity dir structure to hopefully hack singularity functionality when relevant
+RUN mkdir -p /.singularity.d/env
+# run echo '#!/bin/bash' >> /.singularity.d/env/91-environment.sh
+RUN echo '. /opt/conda/etc/profile.d/conda.sh' >> /.singularity.d/env/91-environment.sh
+RUN echo 'conda activate myenv' >> /.singularity.d/env/91-environment.sh
+
+RUN \
+    apt-get update -y && \
+    apt-get install -y build-essential && \
+    . /opt/conda/etc/profile.d/conda.sh && \
+    conda activate && \
+    conda env create -n myenv -f environment.yml && \
+    conda activate myenv && \
+    git clone https://gitlab.com/semarpetrus/pk_binning.git && \
+    cd pk_binning/ && \
+    python setup.py build_ext --inplace && \
+    python setup.py install
+
+# Make RUN commands use the new environment (for docker execution):
+SHELL ["conda", "run", "-n", "myenv", "/bin/bash", "-c"]
