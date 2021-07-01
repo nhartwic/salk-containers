@@ -3,13 +3,14 @@ channels:
   - bioconda
   - defaults
 dependencies:
-  - python==3.7.6
+  - python
   - Cython
   - setuptools
   - pandas
   - numpy
   - plotly
   - biopython
+  - snakemake
   - pilon
   - bwa
   - samtools
