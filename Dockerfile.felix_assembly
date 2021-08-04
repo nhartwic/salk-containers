@@ -21,7 +21,6 @@ RUN \
     conda activate myenv && \
     git clone https://gitlab.com/semarpetrus/pk_binning.git && \
     cd pk_binning/ && \
-    rm pk_binning/pk_bin.cpp && \
     python setup.py build_ext --inplace && \
     python setup.py install
 
