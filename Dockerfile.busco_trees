@@ -12,6 +12,7 @@ RUN \
     conda env create -f environment.yml -n myenv && \
     apt-get update && \
     apt-get install -y build-essential && \
+    sudo apt-get install zip \
     wget https://github.com/smirarab/ASTRAL/raw/master/Astral.5.7.7.zip && \
     unzip Astral.5.7.7.zip
 
