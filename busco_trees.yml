@@ -1,0 +1,14 @@
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - busco
+  - mafft
+  - prank
+  - clustalw
+  - ruby
+  - perl
+  - perl-bioperl
+  - raxml
+  - openjdk
