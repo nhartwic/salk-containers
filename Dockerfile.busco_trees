@@ -13,8 +13,22 @@ RUN \
     apt-get update && \
     apt-get install -y build-essential && \
     sudo apt-get install zip \
-    wget https://github.com/smirarab/ASTRAL/raw/master/Astral.5.7.7.zip && \
-    unzip Astral.5.7.7.zip
+    wget https://github.com/stamatak/standard-RAxML/archive/v8.2.12.tar.gz && \
+    tar -xvf v8.2.12.tar.gz && \
+    rm -rf v8.2.12.tar.gz && \
+    cd standard-RAxML-8.2.12/ && \
+    make -f Makefile.gcc && \
+    rm *.o && \
+    make -f Makefile.SSE3.gcc && \
+    rm *.o && \
+    make -f Makefile.AVX.gcc && \
+    rm *.o && \
+    make -f Makefile.PTHREADS.gcc && \
+    rm *.o && \
+    make -f Makefile.SSE3.PTHREADS.gcc && \
+    rm *.o && \
+    make -f Makefile.AVX.PTHREADS.gcc && \
+    rm *.o
 
 # added conda activation to bashrc which maybe sometimes does something
 RUN echo "source activate myenv" > ~/.bashrc
